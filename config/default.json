@@ -1,0 +1,9 @@
+{
+    "PORT": 4000,
+    "mySecretTokenKey": "secret1996",
+    "JWT_EXPIRES_IN": "1d",
+    "DB_HOST": "localhost",
+    "DB_NAME": "avto_shop",
+    "DB_USER": "root",
+    "DB_PASSWORD": "20051996"
+}

@@ -1,0 +1,278 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Cars API",
+        "version": "1.0.0",
+        "description": "API for managing car listings"
+    },
+    "paths": {
+        "/api/cars": {
+            "post": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of the car"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "description": "Model of the car"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description of the car"
+                                    },
+                                    "engine_capacity": {
+                                        "type": "integer",
+                                        "description": "Engine capacity of the car"
+                                    },
+                                    "fuel_type": {
+                                        "type": "string",
+                                        "description": "Type of fuel used by the car"
+                                    },
+                                    "transmission": {
+                                        "type": "string",
+                                        "description": "Transmission type of the car"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "description": "Color of the car"
+                                    },
+                                    "year": {
+                                        "type": "integer",
+                                        "description": "Year of manufacture of the car"
+                                    },
+                                    "mileage": {
+                                        "type": "integer",
+                                        "description": "Mileage of the car in kilometers"
+                                    },
+                                    "conditionn": {
+                                        "type": "string",
+                                        "description": "Condition of the car (new, used, etc.)"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "description": "Price of the car"
+                                    },
+                                    "count": {
+                                        "type": "integer",
+                                        "description": "Number of cars available"
+                                    }
+                                },
+                                "required": ["name", "model",  "price", "count"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Car created successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/cars/all": {
+            "get": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "BAD REQUEST"
+                    },
+                    "500": {
+                        "description": "INTERNAL SERVER ERROR"
+                    }
+                }
+            }
+        },
+        "/api/cars/{id}": {
+            "get": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of the car"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "description": "Model of the car"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description of the car"
+                                    },
+                                    "engine_capacity": {
+                                        "type": "integer",
+                                        "description": "Engine capacity of the car"
+                                    },
+                                    "fuel_type": {
+                                        "type": "string",
+                                        "description": "Type of fuel used by the car"
+                                    },
+                                    "transmission": {
+                                        "type": "string",
+                                        "description": "Transmission type of the car"
+                                    },
+                                    "color": {
+                                        "type": "string",
+                                        "description": "Color of the car"
+                                    },
+                                    "year": {
+                                        "type": "integer",
+                                        "description": "Year of manufacture of the car"
+                                    },
+                                    "mileage": {
+                                        "type": "integer",
+                                        "description": "Mileage of the car in kilometers"
+                                    },
+                                    "conditionn": {
+                                        "type": "string",
+                                        "description": "Condition of the car (new, used, etc.)"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "description": "Price of the car"
+                                    },
+                                    "count": {
+                                        "type": "integer",
+                                        "description": "Number of cars available"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Car deleted successfully"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}
