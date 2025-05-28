@@ -130,6 +130,49 @@
                 }
             }
         },
+        "/api/cars/sold": {
+            "get": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "BAD REQUEST"
+                    },
+                    "500": {
+                        "description": "INTERNAL SERVER ERROR"
+                    }
+                }
+            }
+        },
+        "/api/cars/overdue": {
+            "get": {
+                "tags": ["Cars"],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "BAD REQUEST"
+                    },
+                    "500":{
+                        "description": "INTERNAL SERVER ERROR"
+                    }
+                }
+            }
+        },
+
         "/api/cars/{id}": {
             "get": {
                 "tags": ["Cars"],
